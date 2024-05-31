@@ -14,7 +14,7 @@ def get_mypy_errors(directory: str) -> List[str]:
 
 
 def get_coder(
-    model: str = "gpt-4o",
+    model_name: str = "gpt-4o",
     git_dname: str = ".",
     chat_history_file: str = "history.md",
     test_cmd: str = "pytest",
@@ -27,14 +27,12 @@ def get_coder(
 
     If `oracle_files` are provided, they are added to the aider chat automatically.
     """
-    model = Model(model)
+    model = Model(model_name)
     io = InputOutput(
         yes=True,  # Say yes to every suggestion aider makes
         chat_history_file=chat_history_file,  # Log the chat here
         input_history_file="/dev/null",  # Don't log the "user input"
     )
-
-    dump(git_dname)
 
     coder = Coder.create(
         main_model=model,
