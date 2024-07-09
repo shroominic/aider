@@ -1,7 +1,5 @@
-import io
 import os
 import re
-import runpy
 import subprocess
 import sys
 import traceback
@@ -11,7 +9,6 @@ from pathlib import Path
 
 from grep_ast import TreeContext, filename_to_lang
 from tree_sitter_languages import get_parser  # noqa: E402
-from contextlib import redirect_stdout
 
 from aider.dump import dump  # noqa: F401
 

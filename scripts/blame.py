@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 
+import argparse
+import re
 import subprocess
 import sys
-import tempfile
-import argparse
 from collections import defaultdict
-from pathlib import Path
-from aider.dump import dump
-import os
 from operator import itemgetter
-import re
+
+from aider.dump import dump
 
 
 def get_all_commit_hashes_since_tag(tag):
