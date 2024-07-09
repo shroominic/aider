@@ -167,15 +167,18 @@ def process(entry):
     docs_dname.mkdir(exist_ok=True)
 
     ins_fname = docs_dname / "instructions.md"
-    ins_fname.write_text(f"""# Refactor {class_name}.{method_name}
+    ins_fname.write_text(
+        f"""# Refactor {class_name}.{method_name}
 
 Refactor the `{method_name}` method in the `{class_name}` class to be a stand alone, top level function.
 Name the new function `{method_name}`, exactly the same name as the existing method.
 Update any existing `self.{method_name}` calls to work with the new `{method_name}` function.
-""")  # noqa: E501
+"""
+    )  # noqa: E501
 
     test_fname = dname / f"{fname.stem}_test.py"
-    test_fname.write_text(f"""
+    test_fname.write_text(
+        f"""
 import unittest
 from benchmark.refactor_tools import verify_refactor
 from pathlib import Path
@@ -193,7 +196,8 @@ class TheTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-""")
+"""
+    )
 
 
 def main(paths):
