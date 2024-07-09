@@ -132,7 +132,7 @@ def find_non_self_methods(path):
         with open(filename, "r") as file:
             try:
                 node = ast.parse(file.read(), filename=filename)
-            except:
+            except Exception:
                 pass
             checker = SelfUsageChecker()
             checker.visit(node)
@@ -170,7 +170,8 @@ def process(entry):
     ins_fname.write_text(
         f"""# Refactor {class_name}.{method_name}
 
-Refactor the `{method_name}` method in the `{class_name}` class to be a stand alone, top level function.
+Refactor the `{method_name}` method in the `{class_name}` class "
+"to be a stand alone, top level function.
 Name the new function `{method_name}`, exactly the same name as the existing method.
 Update any existing `self.{method_name}` calls to work with the new `{method_name}` function.
 """

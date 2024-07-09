@@ -484,7 +484,7 @@ class Model:
         if not self.tokenizer:
             return
 
-        if type(messages) is str:
+        if isinstance(messages, str):
             msgs = messages
         else:
             msgs = json.dumps(messages)

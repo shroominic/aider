@@ -56,11 +56,13 @@ def main():
             origin_date = datetime.datetime.strptime(origin_date, "%Y-%m-%d %H:%M:%S %z")
             if local_date < origin_date:
                 print(
-                    "Error: The local main branch is behind origin/main. Please pull the latest changes."
+                    "Error: The local main branch is behind origin/main. "
+                    "Please pull the latest changes."
                 )
             elif local_date > origin_date:
                 print(
-                    "Error: The origin/main branch is behind the local main branch. Please push your changes."
+                    "Error: The origin/main branch is behind the local main branch. "
+                    "Please push your changes."
                 )
             else:
                 print("Error: The main branch and origin/main have diverged.")
